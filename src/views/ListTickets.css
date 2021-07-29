@@ -1,0 +1,17 @@
+.ticketBoard {
+    background-color: palevioletred;
+    border: 4px solid lightsteelblue;
+    border-radius: 3px;
+    margin: 20px auto;
+    padding: 20px 0px;
+    width: 60%;
+
+}
+
+.pageHandlers {
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
