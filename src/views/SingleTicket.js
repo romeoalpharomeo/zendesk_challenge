@@ -9,19 +9,35 @@ const SingleTicket = (props) => {
     // const [loading, setLoading] = useState(false);
     const [isAvailable ,setIsAvailable] = useState(true)
     let encoded = base64_encode('ryanrey0333@gmail.com:romeoalpha123!');
+    let ticketId = props.id;
 
     useEffect(()=>{
         // setLoading(true)
+        // axios
+        //     .get(`https://zccryanreynolds.zendesk.com/api/v2/tickets/${props.id}`, {
+        //         headers: { 'Authorization': `Basic ${encoded}`}
+        //     })
+        //     .then(res=>{
+        //         console.log("Retrieving ticket...")
+        //         console.log(res)
+        //         console.log("Got it.")
+        //         setIsAvailable(true)
+        //         setTicketDetails(res.data.ticket)
+        //         // setLoading(false)
+        //     })
+        //     .catch(err=>{
+        //         setIsAvailable(false)
+        //         alert("Zendesk API currently unavailable. Please try again later. " + err)
+        //         console.log(err)
+        //     })
         axios
-            .get(`https://zccryanreynolds.zendesk.com/api/v2/tickets/${props.id}`, {
-                headers: { 'Authorization': `Basic ${encoded}`}
-            })
-            .then(res=>{
-                console.log("Retrieving ticket...")
-                console.log(res)
-                console.log("Got it.")
+            .post('http://localhost:8000/api/ticket', {
+            ticketId,
+        })
+            .then(res => {
                 setIsAvailable(true)
-                setTicketDetails(res.data.ticket)
+                console.log(res.data.results)
+                setTicketDetails(res.data.results.ticket)
                 // setLoading(false)
             })
             .catch(err=>{
@@ -29,7 +45,8 @@ const SingleTicket = (props) => {
                 alert("Zendesk API currently unavailable. Please try again later. " + err)
                 console.log(err)
             })
-    }, [props.id, encoded])
+    }, [ticketId])
+    
     return (
         <div className="singleTicket" >
                 <div data-testid="singleTicket" >

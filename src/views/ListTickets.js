@@ -51,7 +51,7 @@ const ListTickets = () => {
                     alert("Zendesk API currently unavailable. Please try again later. " + err)
                     console.log(err)
             })
-    }, [encoded] )
+    }, [encoded])
 
     const pageHandler = (event, linkTo) => {
         setLoading(true);
