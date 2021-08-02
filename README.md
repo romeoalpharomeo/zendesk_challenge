@@ -1,3 +1,23 @@
+# Cloning and running the Zendesk Ticket Viewing App
+
+Open your terminal or command prompt
+Run the following:
+git clone https://github.com/romeoalpharomeo/zendesk_challenge {directory_name_of_your_choice}
+
+Once successfully cloned, cd into the directory you created containing the cloned repo
+Run the following:
+npm install
+
+Once the installs are complete, run the following command:
+nodemon server.js
+
+The previous command will start the server for express/node
+
+Once you see "Listening on port 8000" in the terminal or command prompt, open another terminal or command prompt and run the following:
+npm start
+
+The application should open your browser window at this point and you should be able to page through all of the tickets and display individual ones.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

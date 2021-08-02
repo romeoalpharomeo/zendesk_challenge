@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const axios = require('axios');
-const { response } = require('express');
 let encoded = btoa('ryanrey0333@gmail.com:romeoalpha123!');
 
 
@@ -20,7 +19,7 @@ app.get('/api/home', (req,res) => {
                 }
             })
             .then(responsefromapi => {
-                console.log(responsefromapi.data)
+                console.log("From server: " + responsefromapi.data)
                 res.json({results: responsefromapi.data})
             })
             .catch(err=>{
@@ -30,7 +29,6 @@ app.get('/api/home', (req,res) => {
 
 app.post('/api/pages', (req,res) => {
     const { linkTo } = req.body;
-    console.log('hello')
     axios.get(`${linkTo}`, {
                 headers: { 
                     'Authorization': `Basic ${encoded}`,
@@ -55,7 +53,6 @@ app.post('/api/ticket', (req,res) => {
                 console.log(responsefromapi.data)
                 console.log("Got it.")
                 res.json({results: responsefromapi.data})
-                // setLoading(false)
             })
             .catch(err=>{
                 console.log(err)

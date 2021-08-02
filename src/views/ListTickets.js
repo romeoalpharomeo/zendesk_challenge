@@ -14,7 +14,9 @@ const ListTickets = () => {
     const [isAvailable, setIsAvailable] = useState(true)
     const [firstPage, setFirstPage] = useState(0);
     const [hasMore, setHasMore] = useState(true)
-    let encoded = base64_encode('ryanrey0333@gmail.com:romeoalpha123!');
+    // let encoded = base64_encode('ryanrey0333@gmail.com:romeoalpha123!');
+    const [home] = useState(true)
+
 
     useEffect(()=>{
         setLoading(true);
@@ -51,7 +53,7 @@ const ListTickets = () => {
                     alert("Zendesk API currently unavailable. Please try again later. " + err)
                     console.log(err)
             })
-    }, [encoded])
+    }, [home])
 
     const pageHandler = (event, linkTo) => {
         setLoading(true);
@@ -91,7 +93,7 @@ const ListTickets = () => {
 
     return (
         <div>
-            <h1>Tickets</h1>
+            <h1 className="pageTitle" >All Tickets</h1>
             <div className="ticketBoard" >
             
             { loading ? 
