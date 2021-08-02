@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import ListTickets from './ListTickets';
 
-describe('ListTickets view', () => {
-    test('renders tickets if request is successful', async () => {
-        render(<ListTickets />);
+test('displays home page', async () => {
+    render(<ListTickets/>)
 
-        const listTicketItems = await screen.getAllByRole('list');
-        expect(listTicketItems).not.toHaveLength(0);
-    });
+    const homeHeader = await screen.findAllByRole('heading');
+    expect(homeHeader).toHaveLength(1);
+
+    const listAllTickets = await screen.findAllByRole('list');
+    expect(listAllTickets).toHaveLength(25);
 });
