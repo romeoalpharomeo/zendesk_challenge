@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const axios = require('axios');
-let encoded = btoa('ryanrey0333@gmail.com:romeoalpha123!');
+let encoded = btoa('placeholderemail:placeholderpassword');
 
 
 app.use(cors());
